@@ -12,6 +12,9 @@ public:
 		arr = new int[size];
 	}
 
+	smart_array(const smart_array&) = delete;
+	smart_array& operator=(const smart_array&) = delete;
+
 	void add_element(int input) {
 		if (queue < size) {
 			arr[queue] = input;
@@ -23,7 +26,7 @@ public:
 	}
 
 	int get_element(int input) {
-		if (input >= 0 && input < size) {
+		if (input >= 0 && input < queue) {
 			return arr[input];
 		}
 		else {
@@ -32,7 +35,7 @@ public:
 	}
 
 	~smart_array() {
-		delete arr;
+		delete[] arr;
 	}
 };
 
